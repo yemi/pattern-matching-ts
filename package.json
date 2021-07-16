@@ -23,7 +23,8 @@
     "dtslint": "dtslint dtslint",
     "prerelease": "npm run build",
     "release": "ts-node scripts/release",
-    "docs": "docs-ts"
+    "docs": "docs-ts",
+    "postinstall": "npm run build"
   },
   "tags": [
     "typescript",
