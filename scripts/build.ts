@@ -64,7 +64,6 @@ function makePkgJson(module: string): TE.TaskEither<Error, string> {
     JSON.stringify(
       {
         main: `../lib/${module}.js`,
-        module: `../es6/${module}.js`,
         typings: `../lib/${module}.d.ts`,
         sideEffects: false
       },

@@ -166,13 +166,10 @@ export function match<T extends Match | DefaultCase, R = unknown>(
 export const matchW: <_Tag extends string>(
   _tag: _Tag
 ) => {
-  <
-    A extends { [X in _Tag]: string | number | typeof DEFAULT },
-    K extends { [X in A[_Tag]]: MatchW<A, _Tag, X, unknown> }
-  >(
-    k: K
-  ): (match: A) => ReturnType<K[keyof K]> | DefaultCase
-} = (_tag) => (k: any) => (match: any | DefaultCase) => {
+  <A extends { [X in _Tag]: string | number }, K extends { [X in A[_Tag]]: MatchW<A, _Tag, X, unknown> }>(k: K): (
+    match: A
+  ) => ReturnType<K[keyof K]>
+} = (_tag) => (k: any) => (match: any) => {
   /* istanbul ignore next */
-  return k?.[match?.[_tag]] ? k[match[_tag]](match) : k[DEFAULT](match)
+  return k?.[match?.[_tag]](match)
 }

@@ -15,7 +15,7 @@
     "test": "yarn lint && yarn prettier && yarn jest-clear-cache && yarn jest",
     "clean": "rimraf ./dist",
     "prebuild": "yarn clean",
-    "build": "tsc -p ./tsconfig.build.json && tsc -p ./tsconfig.build-es6.json && ts-node scripts/build",
+    "build": "tsc -p ./tsconfig.build.json && ts-node scripts/build",
     "postbuild": "prettier --loglevel=silent --write \"./dist/**/*.ts\"",
     "prepublishOnly": "ts-node scripts/pre-publish",
     "doctoc": "doctoc README.md docs/introduction/code-conventions.md --title \"**Table of contents**\"",
